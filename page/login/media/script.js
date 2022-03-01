@@ -30,3 +30,7 @@
 
   window.addEventListener("hashchange", hashChange);
 })();
+
+function redirectTo(newHash) {
+  window.location.hash = newHash;
+}

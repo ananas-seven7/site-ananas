@@ -1,27 +1,39 @@
 body {
-  background-color: #afafaf;
+  background-color: #0000001f;
+}
+a {
+  color: #551a8b;
+}
+a:link {
+  color: #551a8b;
+}
+a:visited {
+  color: #551a8b;
+}
+a:focus {
+  color: #551a8b;
+}
+a:hover {
+  color: #551a8b;
+}
+a:active {
+  color: #551a8b;
 }
 
-form.content {
+div.content {
   display: none;
 }
-form.active {
-  display: block;
+div.active {
+  display: grid;
 }
 
-form.content div.template {
-  text-align: center;
-  width: 670px;
-  border-radius: 10px;
-  background-color: #fff;
-}
-div.template div.up {
+div.content .up.center {
   background-image: url(https://colorlib.com/etc/lf/Login_v15/images/bg-01.jpg);
-  position: relative;
   z-index: 1;
   padding: 70px 15px 74px 15px;
+  position: relative;
 }
-div.template div.up::before {
+div.content .up.center::before {
   content: "";
   display: block;
   position: absolute;
@@ -32,7 +44,7 @@ div.template div.up::before {
   left: 0;
   background-color: rgba(54, 84, 99, 0.7);
 }
-div.template div span {
+div.content .up.center span {
   font-family: Poppins-Bold, Bold;
   color: #fff;
   font-size: 30px;
@@ -40,20 +52,88 @@ div.template div span {
   line-height: 1.2;
   text-align: center;
 }
-
-div.template div.bottom {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: space-between;
-  padding: 43px 88px 93px 190px;
+div.content .bottom {
+  margin: 15px 0px 20px 0px;
 }
+
 input {
   width: 200px;
   padding: 10px 5px;
   border-radius: 5px;
   margin: 5px;
 }
-input[type="submit"] {
+
+@media (min-width: 676px) {
+  body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  div.active {
+    min-width: 350px;
+    max-width: 670px;
+    width: 50%;
+    background-color: #fff;
+    border-radius: 10px;
+  }
+
+  div.content .up.center {
+    grid-area: 1 / 1 / 2 / 3;
+
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  div.content .up.center::before {
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+  }
+  div.content .bottom.left {
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  div.content .bottom.right {
+    grid-area: 2 / 2 / 3 / 3;
+    text-align: center;
+
+    font-size: 32px;
+  }
+  div.content .bottom.right a {
+    width: 100%;
+    height: 100%;
+  }
 }
-input[type="text"] {
+@media (max-width: 675px) {
+  body {
+    margin: 0px;
+  }
+
+  div.content .up.center {
+    grid-area: 1 / 1 / 2 / 2;
+  }
+  div.content .bottom.left {
+    grid-area: 3 / 1 / 4 / 2;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+  }
+  div.content .bottom.right {
+    grid-area: 2 / 1 / 3 / 2;
+    display: flex;
+    justify-content: center;
+    padding: 2px;
+  }
+  div.content .bottom.right a {
+    padding: 8px 0px;
+    border: #555555 solid 2px;
+    border-radius: 5px;
+    width: 200px;
+    text-decoration: none;
+    color: black;
+    text-align: center;
+  }
 }
